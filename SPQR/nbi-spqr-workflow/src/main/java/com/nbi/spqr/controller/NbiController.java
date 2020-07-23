@@ -1,0 +1,24 @@
+package com.nbi.spqr.controller;
+
+import com.nbi.spqr.dto.NbiResponse;
+import com.nbi.spqr.repository.NbiRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
+
+@RestController
+public class NbiController {
+
+    @Autowired
+    private NbiRepository nbiRepository;
+
+    @RequestMapping(value="/getInfo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Optional<NbiResponse> getJoinInformation(){
+        return nbiRepository.getJoinInformation();
+    }
+
+}

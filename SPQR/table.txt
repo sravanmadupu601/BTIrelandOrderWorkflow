@@ -1,0 +1,24 @@
+Eir_code Product_code Flag
+
+CREATE TABLE NBI_Prequal (
+	Id varchar(20),
+    Eir_code varchar(50),
+    Product_code varchar(50),
+    Flag char(10)
+);
+
+INSERT INTO NBI_Prequal (id, Eir_code, Product_code, Flag)
+VALUES (1, "NBICS", "NBIbroadband", "true");
+
++----------+--------------+-------+
+| Eir_code | Product_code | Flag  |
++----------+--------------+-------+
+| NBI0001  | NBIbroadband | Green |
++----------+--------------+-------+
+
+INSERT INTO NBI_Prequal (Eir_code, Product_code, Flag)
+VALUES ("NBI0002", "NBIrouter", "Red");
+
+IE1-BT002.01.01
+
+String firstName = JsonPath.read(rawJsonString, "$.detail.first_name");

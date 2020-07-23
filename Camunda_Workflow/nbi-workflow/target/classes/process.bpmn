@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:process id="nbi-workflow-process" isExecutable="true">
+    <bpmn:exclusiveGateway id="Gateway_0ddtxt8" name="Validation Successful?">
+      <bpmn:incoming>Flow_1euurm1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0w5hqpq</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:startEvent id="Event_06rsegg" name="Receive NFIB Order">
+      <bpmn:outgoing>Flow_08hm1mf</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0w5hqpq" name="Yes" sourceRef="Gateway_0ddtxt8" targetRef="Activity_1aqwfd8" />
+    <bpmn:sequenceFlow id="Flow_08hm1mf" sourceRef="Event_06rsegg" targetRef="Activity_0dd53z6" />
+    <bpmn:sequenceFlow id="Flow_1euurm1" sourceRef="Activity_0dd53z6" targetRef="Gateway_0ddtxt8" />
+    <bpmn:userTask id="Activity_0dd53z6" name="Pre Validation of Products Requested">
+      <bpmn:incoming>Flow_08hm1mf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1euurm1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1w449mz">
+      <bpmn:incoming>Flow_04pwltz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0m8bngn" sourceRef="Activity_1aqwfd8" targetRef="Activity_03ynxsj" />
+    <bpmn:serviceTask id="Activity_1aqwfd8" name="SPQR Service (PreQual validation)" camunda:class="com.nbi.workflow.SpqrDelegate">
+      <bpmn:incoming>Flow_0w5hqpq</bpmn:incoming>
+      <bpmn:outgoing>Flow_0m8bngn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0d50za9" sourceRef="Activity_03ynxsj" targetRef="Activity_1wpyo4d" />
+    <bpmn:sequenceFlow id="Flow_04pwltz" sourceRef="Activity_1wpyo4d" targetRef="Event_1w449mz" />
+    <bpmn:userTask id="Activity_03ynxsj" name="Appointment Service (Validate Appointment)">
+      <bpmn:incoming>Flow_0m8bngn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0d50za9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1wpyo4d" name="Submit NBI Order">
+      <bpmn:incoming>Flow_0d50za9</bpmn:incoming>
+      <bpmn:outgoing>Flow_04pwltz</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="nbi-workflow-process">
+      <bpmndi:BPMNEdge id="Flow_0w5hqpq_di" bpmnElement="Flow_0w5hqpq">
+        <di:waypoint x="455" y="147" />
+        <di:waypoint x="510" y="147" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="464" y="129" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08hm1mf_di" bpmnElement="Flow_08hm1mf">
+        <di:waypoint x="215" y="147" />
+        <di:waypoint x="270" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1euurm1_di" bpmnElement="Flow_1euurm1">
+        <di:waypoint x="370" y="147" />
+        <di:waypoint x="405" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0m8bngn_di" bpmnElement="Flow_0m8bngn">
+        <di:waypoint x="610" y="147" />
+        <di:waypoint x="690" y="147" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="636" y="129" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0d50za9_di" bpmnElement="Flow_0d50za9">
+        <di:waypoint x="790" y="147" />
+        <di:waypoint x="880" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04pwltz_di" bpmnElement="Flow_04pwltz">
+        <di:waypoint x="980" y="147" />
+        <di:waypoint x="1082" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_0ddtxt8_di" bpmnElement="Gateway_0ddtxt8" isMarkerVisible="true">
+        <dc:Bounds x="405" y="122" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="400" y="92" width="60" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06rsegg_di" bpmnElement="Event_06rsegg">
+        <dc:Bounds x="179" y="129" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="163" y="172" width="68" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1bj8j8t_di" bpmnElement="Activity_0dd53z6">
+        <dc:Bounds x="270" y="107" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1evcl1l_di" bpmnElement="Activity_1aqwfd8">
+        <dc:Bounds x="510" y="107" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1w449mz_di" bpmnElement="Event_1w449mz">
+        <dc:Bounds x="1082" y="129" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1teur8c_di" bpmnElement="Activity_03ynxsj">
+        <dc:Bounds x="690" y="107" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12i8e4n_di" bpmnElement="Activity_1wpyo4d">
+        <dc:Bounds x="880" y="107" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

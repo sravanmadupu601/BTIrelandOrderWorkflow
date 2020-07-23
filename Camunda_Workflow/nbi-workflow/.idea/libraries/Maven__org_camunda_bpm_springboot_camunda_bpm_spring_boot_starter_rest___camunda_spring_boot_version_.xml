@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest:${camunda.spring-boot.version}">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/camunda/bpm/springboot/camunda-bpm-spring-boot-starter-rest/${camunda.spring-boot.version}/camunda-bpm-spring-boot-starter-rest-${camunda.spring-boot.version}.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/camunda/bpm/springboot/camunda-bpm-spring-boot-starter-rest/${camunda.spring-boot.version}/camunda-bpm-spring-boot-starter-rest-${camunda.spring-boot.version}-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/camunda/bpm/springboot/camunda-bpm-spring-boot-starter-rest/${camunda.spring-boot.version}/camunda-bpm-spring-boot-starter-rest-${camunda.spring-boot.version}-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

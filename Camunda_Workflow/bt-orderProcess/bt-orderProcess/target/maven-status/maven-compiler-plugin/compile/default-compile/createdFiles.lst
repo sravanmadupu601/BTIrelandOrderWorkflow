@@ -1,0 +1,9 @@
+com\camunda\workflow\bt\order\delegates\PreValidationService.class
+com\camunda\workflow\bt\order\Application.class
+com\camunda\workflow\bt\order\delegates\SPQRValidationService.class
+com\camunda\workflow\bt\order\delegates\RejectEmailNotificationService.class
+com\camunda\workflow\bt\order\delegates\AppointmentValidationService.class
+com\camunda\workflow\bt\order\delegates\TaskAssignmentListener$1.class
+com\camunda\workflow\bt\order\delegates\TaskAssignmentListener.class
+com\camunda\workflow\bt\order\delegates\AcceptEmailNotificationService.class
+com\camunda\workflow\bt\order\delegates\SubmitNbiOrderService.class

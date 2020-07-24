@@ -19,7 +19,7 @@ import static java.sql.JDBCType.BOOLEAN;
 public class PreValidationService implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        String sURL = "http://localhost:9095/getAppointment";
+        String sURL = " http://localhost:9094/getValidation";
         URL url = new URL(sURL);
         URLConnection request = url.openConnection();
         request.connect();

@@ -82,7 +82,9 @@
     <bpmn:sequenceFlow id="Flow_0xelwtp" name="RED" sourceRef="Activity_0x543v2" targetRef="Gateway_174m67s">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not green}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0uo45nm" name="No" sourceRef="Gateway_0axro6a" targetRef="Gateway_174m67s" />
+    <bpmn:sequenceFlow id="Flow_0uo45nm" name="No" sourceRef="Gateway_0axro6a" targetRef="Gateway_174m67s">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not valid}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:serviceTask id="Activity_1nvt25o" name="Appointment Service (Validate Appointment)" camunda:delegateExpression="${appointmentValidation}">
       <bpmn:incoming>Flow_0h8yw7e</bpmn:incoming>
       <bpmn:outgoing>Flow_10jf0av</bpmn:outgoing>
@@ -96,7 +98,7 @@
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
-            <camunda:inputParameter name="to">aadarsh2@dxc.com</camunda:inputParameter>
+            <camunda:inputParameter name="to">smadupu@dxc.com</camunda:inputParameter>
             <camunda:inputParameter name="subject">Order Submitted</camunda:inputParameter>
             <camunda:inputParameter name="text">Order Submitted Successfully through camunda workflow eengine</camunda:inputParameter>
           </camunda:inputOutput>
@@ -212,7 +214,7 @@
         <di:waypoint x="1030" y="420" />
         <di:waypoint x="1150" y="420" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1007" y="345" width="78" height="14" />
+          <dc:Bounds x="1041" y="340" width="78" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">

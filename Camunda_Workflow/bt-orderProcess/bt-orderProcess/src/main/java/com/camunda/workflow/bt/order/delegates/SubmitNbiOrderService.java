@@ -16,7 +16,7 @@ import java.net.URLConnection;
 public class SubmitNbiOrderService implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        String sURL = "http://localhost:3000/submit_order"; //just a string
+        String sURL = "http://localhost:9096/orderSubmit"; //just a string
 
         // Connect to the URL using java's native library
         URL url = new URL(sURL);
@@ -27,7 +27,7 @@ public class SubmitNbiOrderService implements JavaDelegate {
         JsonParser jp = new JsonParser(); //from gson
         JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent())); //Convert the input stream to a json element
         JsonObject rootobj = root.getAsJsonObject(); //May be an array, may be an object.
-        String valid_status = rootobj.get("status").getAsString(); //just grab the zipcode
+        String valid_status = rootobj.get("success").getAsString(); //just grab the zipcode
         System.out.println(valid_status);
         boolean b1=Boolean.parseBoolean(valid_status);
 

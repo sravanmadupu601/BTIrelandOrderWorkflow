@@ -19,8 +19,8 @@ import java.util.logging.Logger;
 public class TaskAssignmentListener implements TaskListener {
 
     private static final String HOST = "smtp.gmail.com";
-    private static final String USER = "email";
-    private static final String PWD = "password";
+    private static final String USER = "shravanmadupu601@gmail.com";
+    private static final String PWD = "Ramvijaya@143";
 
 
     @Override

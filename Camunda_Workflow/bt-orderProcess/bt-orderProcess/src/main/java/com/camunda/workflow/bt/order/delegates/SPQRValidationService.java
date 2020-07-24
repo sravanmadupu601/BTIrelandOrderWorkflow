@@ -16,7 +16,7 @@ import java.net.URLConnection;
 public class SPQRValidationService implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        String sURL = "http://localhost:8085/getInfo";
+        String sURL = " http://localhost:8085/getInfo";
         URL url = new URL(sURL);
         URLConnection request = url.openConnection();
         request.connect();
